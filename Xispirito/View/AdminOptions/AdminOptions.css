@@ -1,0 +1,69 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.admin-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 75vh;
+    width: 100%;
+    gap: 7rem;
+    padding: 5rem 8rem;
+    font-size: 1.6rem;
+    background: #181a1b;
+    color: white;
+}
+
+.admin-options-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 5rem;
+}
+
+.admin-options-list-left {
+    grid-column-start: 1;
+    border: .1rem solid;
+    padding: 3rem 2rem 0 2rem;
+    border-radius: 2rem;
+}
+
+.admin-options-list-right {
+    grid-column-start: 2;
+    border: .1rem solid;
+    padding: 3rem 2rem 0 2rem;
+    border-radius: 2rem;
+}
+
+.admin-options-list-left:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.admin-options-list-right:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.admin-options-image {
+    min-width: 20rem;
+    max-width: 20rem;
+    min-height: 20rem;
+    max-height: 20rem
+}
+
+.align-image {
+    display: flex;
+    justify-content: center;
+    margin: 6rem;
+}

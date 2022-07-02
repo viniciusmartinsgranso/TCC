@@ -1,0 +1,22 @@
+
+/* media queries */
+html {
+    font-size: 50%;
+}
+
+@media (max-width: 630px) {
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    section.hero div.container img {
+        min-width: 100%;
+        order: -1;
+    }
+
+    .form-group {
+        display: block;
+    }
+}

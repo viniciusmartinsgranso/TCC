@@ -1,0 +1,145 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="Xispirito.View.MasterPage.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="MasterPage-responsive.css" media="screen and (max-width: 870px)" />
+    <link rel="stylesheet" href="MasterPage.css" />
+    <asp:ContentPlaceHolder ID="HeaderFooter" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="frmMasterPage" runat="server">
+        <header>
+            <div class="header">
+                <nav>
+                    <ul class="header-logo">
+                        <li class="header-li">
+                            <img class="header-logo-li-image" src="\View\Images\Xispirito.png" alt="Xispirito" />
+                        </li>
+                        <li class="header-logo header-li logo-xispirito">
+                            <a class="logo-xispirito-image" href="/View/Home/Home.aspx"><b>Xispirito</b></a>
+                        </li>
+                        <li class="header-logo header-li logo-xispirito">
+                            <a class="label-powered" href="https://athonedu.com.br">Powered by Athon</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menu-section">
+                    <div class="menu-toggle">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <nav>
+                        <ul class="header-logo">
+                            <li class="header-li">
+                                <asp:Button ID="Help" runat="server" Text="Ajuda" CssClass="header-buttons" OnClick="Help_Click" />
+                            </li>
+                            <li class="header-li">
+                                <a class="header-buttons" href="/View/Events/Events.aspx">Econtrar Palestra</a>
+                            </li>
+                            <li class="header-li">
+                                <asp:LoginView ID="MasterLoginView" runat="server" >
+                                    <AnonymousTemplate>
+                                        <asp:LoginStatus class="header-buttons" ID="MasterLoginStatus" runat="server" LogoutAction="RedirectToLoginPage" LoginText="Entrar" LogoutPageUrl="~/View/Login/Login.aspx" />
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                        <div class="action">
+                                            <div class="profile-user" onclick="menuToggle();">
+                                                <asp:Image ID="UserPicture" runat="server" class="image-profile" />
+                                            </div>
+                                            <div class="menu">
+                                                <div class="profile-information">
+                                                    <asp:Label ID="UserName" runat="server" CssClass="name"></asp:Label>
+                                                </div>
+                                                <div class="profile-information">
+                                                    <asp:Label ID="UserRole" runat="server" CssClass="role"></asp:Label>
+                                                </div>
+                                                <hr class="line" />
+                                                <ul>
+                                                    <li>
+                                                        <asp:Image ID="Administrate" runat="server" Visible="False" />
+                                                        <asp:LinkButton ID="AdministrationMenu" runat="server" Visible="False">Administrar</asp:LinkButton>
+                                                    </li>
+                                                    <li>
+                                                        <asp:Image ID="Profile" runat="server" />
+                                                        <asp:LinkButton ID="UserProfile" runat="server">Editar Perfil</asp:LinkButton>
+                                                    </li>
+                                                    <li>
+                                                        <img src="/View/Images/RegisteredEvents.png" />
+                                                        <asp:LinkButton ID="RegisteredEvents" runat="server">Palestras Inscritas</asp:LinkButton>
+                                                    </li>
+                                                    <li>
+                                                        <img src="/View/Images/Certificates.png" />
+                                                        <asp:LinkButton ID="UserCertificates" runat="server">Meus Certificados</asp:LinkButton>
+                                                    </li>
+                                                    <li>
+                                                        <img src="/View/Images/Logout.png" />
+                                                        <asp:LoginStatus ID="MasterLoginStatus" runat="server" LogoutAction="RedirectToLoginPage" LogoutText="Sair" LogoutPageUrl="~/View/Login/Login.aspx" />
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="Content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <section id="footer">
+            <div class="form-group">
+                <div class="left-footer">
+                    <p class="text--medium">
+                        Sobre Nós
+                            <br />
+                        Somos uma empresa de tecnologia a desenvolvimento de software.
+                            <br />
+                        Para suporte e assistência, entre em contato conosco atáves do e-mail:
+                            <br />
+                        suporte@xispirito.com.br
+                    </p>
+                </div>
+                <div class="line">
+                </div>
+                <div class="right-footer">
+                    <div>
+                        <asp:Button ID="HelpFooter" runat="server" Text="Ajuda" class="help-footer" OnClick="Help_Click" />
+                    </div>
+                    <div>
+                        <a class="text--medium" href="/View/Login/Login.aspx">Fazer Cadastro
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text--medium" href="/View/Events/Events.aspx">Encontrar um Evento
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text--medium" href="/View/Certificates/Certificates.aspx">Certificados
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function menuToggle() {
+                const toggleMenu = document.querySelector('.menu');
+                toggleMenu.classList.toggle('active');
+            }
+        </script>
+    </form>
+</body>
+</html>
